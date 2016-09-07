@@ -108,11 +108,13 @@ public class BannerCirlePlayer extends RelativeLayout {
         viewpage.setAdapter(new BannerCircleAdapter(urlList, lis, mImageLoader, context, isAutoCircle));
 
 
+        pointLinearLayout.getChildAt(0).setBackgroundResource(R.drawable.dot_focused);
         if (isAutoCircle) {
             currentTimer=new Timer();
             currentTimer.schedule(new TimerTask() {
                 @Override
                 public void run() {
+                    showPicId=1;
                     handler.sendMessage(handler.obtainMessage(1));
                 }
             }, 1000 * showTime);
