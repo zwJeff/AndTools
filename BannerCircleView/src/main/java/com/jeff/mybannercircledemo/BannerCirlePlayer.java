@@ -18,15 +18,15 @@ import java.util.TimerTask;
 
 /**
  * 说明： 图片轮播主类
- *        实现原理：通过将adapter的count设置为极大值，实现同方向无穷轮播
- *                  通过Timer，在每一页图片显示的时候，设置一个延时跳到下一页的操作
- *                  通过ImageViewLoader加载图片
- *
- *        优点：最后一张图片到第一张图片过渡自然
- *              每一张图片都会显示指定延迟时间，不会因为人为滑动导致的跳页和时间错乱
- *              通过ImageViewLoader加载图片可实现图片缓存，不会出现过多图片造成的oor
- *              通过传入url的数量动态决定轮播图的数量
- *
+ * 实现原理：通过将adapter的count设置为极大值，实现同方向无穷轮播
+ * 通过Timer，在每一页图片显示的时候，设置一个延时跳到下一页的操作
+ * 通过ImageViewLoader加载图片
+ * <p>
+ * 优点：最后一张图片到第一张图片过渡自然
+ * 每一张图片都会显示指定延迟时间，不会因为人为滑动导致的跳页和时间错乱
+ * 通过ImageViewLoader加载图片可实现图片缓存，不会出现过多图片造成的oor
+ * 通过传入url的数量动态决定轮播图的数量
+ * <p>
  * 作者： 张武
  * 日期： 2016/9/2.
  * email: jeff_zw@qq.com
@@ -47,7 +47,7 @@ public class BannerCirlePlayer extends RelativeLayout {
     private LinearLayout pointLinearLayout;
 
     //显示的图片id
-    private  int showPicId ;
+    private int showPicId;
 
     //计时器-用于轮播
     private Timer currentTimer;
@@ -76,7 +76,6 @@ public class BannerCirlePlayer extends RelativeLayout {
     };
 
 
-
     public BannerCirlePlayer(Context context, AttributeSet attr) {
         super(context, attr);
         this.context = context;
@@ -84,20 +83,21 @@ public class BannerCirlePlayer extends RelativeLayout {
         initViewWithoutAdapter();
     }
 
-    private void initViewWithoutAdapter() {
+    private BannerCirlePlayer initViewWithoutAdapter() {
         viewpage = (ViewPager) findViewById(R.id.view_pager);
         pointLinearLayout = (LinearLayout) findViewById(R.id.indicate_points);
+        return this;
     }
 
-    public void setData(final List<String> urlList, List<OnClickListener> lis, final boolean isAutoCircle) {
+    public BannerCirlePlayer setData(final List<String> urlList, List<OnClickListener> lis, final boolean isAutoCircle) {
         picUrlList = urlList;
         mClickListenerList = lis;
 
         for (int i = 0; i < picUrlList.size(); i++) {
-            View pot=new View(context);
+            View pot = new View(context);
             pot.setBackgroundResource(R.drawable.dot_normal);
-            LinearLayout.LayoutParams mParam=new LinearLayout.LayoutParams(10,10);
-            mParam.setMargins(2,2,2,2);
+            LinearLayout.LayoutParams mParam = new LinearLayout.LayoutParams(10, 10);
+            mParam.setMargins(2, 2, 2, 2);
             pot.setLayoutParams(mParam);
             pointLinearLayout.addView(pot);
 
@@ -110,11 +110,11 @@ public class BannerCirlePlayer extends RelativeLayout {
 
         pointLinearLayout.getChildAt(0).setBackgroundResource(R.drawable.dot_focused);
         if (isAutoCircle) {
-            currentTimer=new Timer();
+            currentTimer = new Timer();
             currentTimer.schedule(new TimerTask() {
                 @Override
                 public void run() {
-                    showPicId=1;
+                    showPicId = 1;
                     handler.sendMessage(handler.obtainMessage(1));
                 }
             }, 1000 * showTime);
@@ -123,7 +123,7 @@ public class BannerCirlePlayer extends RelativeLayout {
 
         viewpage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
-            int oldPosition=0;
+            int oldPosition = 0;
 
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -133,12 +133,12 @@ public class BannerCirlePlayer extends RelativeLayout {
             @Override
             public void onPageSelected(int position) {
                 pointLinearLayout.getChildAt(oldPosition).setBackgroundResource(R.drawable.dot_normal);
-                pointLinearLayout.getChildAt(position%urlList.size()).setBackgroundResource(R.drawable.dot_focused);
-                oldPosition=position%urlList.size();
-                showPicId=position+1;
+                pointLinearLayout.getChildAt(position % urlList.size()).setBackgroundResource(R.drawable.dot_focused);
+                oldPosition = position % urlList.size();
+                showPicId = position + 1;
                 if (isAutoCircle) {
                     currentTimer.cancel();
-                    currentTimer=new Timer();
+                    currentTimer = new Timer();
                     currentTimer.schedule(new TimerTask() {
                         @Override
                         public void run() {
@@ -154,19 +154,20 @@ public class BannerCirlePlayer extends RelativeLayout {
             }
         });
 
+        return this;
     }
 
-    public void setData(List<String> urlList, List<OnClickListener> lis, boolean isAutoCircle, int showTime) {
+    public BannerCirlePlayer setData(List<String> urlList, List<OnClickListener> lis, boolean isAutoCircle, int showTime) {
         this.showTime = showTime;
         setData(urlList, lis, isAutoCircle);
+        return this;
     }
 
 
-    public void setmImageLoader(MyImageLoader mImageLoader) {
+    public BannerCirlePlayer setmImageLoader(MyImageLoader mImageLoader) {
         this.mImageLoader = mImageLoader;
+        return this;
     }
-
-
 
 
     /**

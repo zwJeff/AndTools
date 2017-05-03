@@ -74,8 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        play.setmImageLoader(new MyImageLoader(MainActivity.this));
-        play.setData(urlList,lis,true);
+        play.setmImageLoader(new MyImageLoader(MainActivity.this)).setData(urlList,lis,true);
 
 
     }
