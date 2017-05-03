@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.util.List;
 
 /**
@@ -16,17 +19,13 @@ public class BannerCircleAdapter extends PagerAdapter {
 
     private List<String> picUrlList;
     private List<View.OnClickListener> mClickListenerList;
-    private MyImageLoader mImageLoader;
-    private Context context;
     private boolean isAutoCircle;
 
 
-    public BannerCircleAdapter(List<String> picUrlList, List<View.OnClickListener> mClickListenerList, MyImageLoader mImageLoader, Context context,boolean isAutoCircle) {
+    public BannerCircleAdapter(List<String> picUrlList, List<View.OnClickListener> mClickListenerList ,boolean isAutoCircle) {
         this.picUrlList = picUrlList;
         this.mClickListenerList = mClickListenerList;
-        this.mImageLoader = mImageLoader;
         this.isAutoCircle=isAutoCircle;
-        this.context = context;
     }
 
     @Override
@@ -42,8 +41,8 @@ public class BannerCircleAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        ImageView iv = new ImageView(context);
-        mImageLoader.loadImage(picUrlList.get(getPosition(position)),iv);
+        ImageView iv = new ImageView(BannerCircleView.mContext);
+        Glide.with(BannerCircleView.mContext).load(picUrlList.get(getPosition(position))).diskCacheStrategy(DiskCacheStrategy.ALL).animate(R.anim.anim_alpha_in).into(iv);
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
         ((ViewPager) container).addView(iv);
         // 在这个方法里面设置图片的点击事件

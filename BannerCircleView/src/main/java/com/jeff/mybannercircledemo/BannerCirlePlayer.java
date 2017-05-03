@@ -5,10 +5,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -20,11 +18,11 @@ import java.util.TimerTask;
  * 说明： 图片轮播主类
  * 实现原理：通过将adapter的count设置为极大值，实现同方向无穷轮播
  * 通过Timer，在每一页图片显示的时候，设置一个延时跳到下一页的操作
- * 通过ImageViewLoader加载图片
+ * 通过Glide加载图片
  * <p>
  * 优点：最后一张图片到第一张图片过渡自然
  * 每一张图片都会显示指定延迟时间，不会因为人为滑动导致的跳页和时间错乱
- * 通过ImageViewLoader加载图片可实现图片缓存，不会出现过多图片造成的oor
+ * 通过Glide加载图片可实现图片缓存，不会出现过多图片造成的oor
  * 通过传入url的数量动态决定轮播图的数量
  * <p>
  * 作者： 张武
@@ -54,9 +52,6 @@ public class BannerCirlePlayer extends RelativeLayout {
 
     //轮播延时（默认3秒）
     private int showTime = 3;
-
-    //用于加载图片的工具（对UniversalImageLoader的封装）
-    private MyImageLoader mImageLoader;
 
     //显示此view的上下文
     private Context context;
@@ -102,10 +97,8 @@ public class BannerCirlePlayer extends RelativeLayout {
             pointLinearLayout.addView(pot);
 
         }
-        if (mImageLoader == null) {
-            setmImageLoader(new MyImageLoader(context));
-        }
-        viewpage.setAdapter(new BannerCircleAdapter(urlList, lis, mImageLoader, context, isAutoCircle));
+
+        viewpage.setAdapter(new BannerCircleAdapter(urlList, lis, isAutoCircle));
 
 
         pointLinearLayout.getChildAt(0).setBackgroundResource(R.drawable.dot_focused);
@@ -163,11 +156,6 @@ public class BannerCirlePlayer extends RelativeLayout {
         return this;
     }
 
-
-    public BannerCirlePlayer setmImageLoader(MyImageLoader mImageLoader) {
-        this.mImageLoader = mImageLoader;
-        return this;
-    }
 
 
     /**
