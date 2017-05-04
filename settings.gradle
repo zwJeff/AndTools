@@ -1,1 +1,1 @@
-include ':ZWAndTools', ':mydemo'
+include ':ZWAndTools'
