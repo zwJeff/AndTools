@@ -110,7 +110,7 @@ public class BannerCirlePlayer extends RelativeLayout {
                     showPicId = 1;
                     handler.sendMessage(handler.obtainMessage(1));
                 }
-            }, 1000 * showTime);
+            }, showTime);
         }
 
 
@@ -137,7 +137,7 @@ public class BannerCirlePlayer extends RelativeLayout {
                         public void run() {
                             handler.sendMessage(handler.obtainMessage(1));
                         }
-                    }, 1000 * showTime);
+                    }, showTime);
                 }
             }
 
