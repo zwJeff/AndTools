@@ -98,7 +98,7 @@ public class BannerCirlePlayer extends RelativeLayout {
 
         }
 
-        viewpage.setAdapter(new BannerCircleAdapter(urlList, lis, isAutoCircle));
+        viewpage.setAdapter(new BannerCircleAdapter(context,urlList, lis, isAutoCircle));
 
 
         pointLinearLayout.getChildAt(0).setBackgroundResource(R.drawable.dot_focused);

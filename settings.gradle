@@ -1,1 +1,2 @@
 include ':BannerCircleView'
+include ':TitleView'

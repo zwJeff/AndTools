@@ -20,9 +20,11 @@ public class BannerCircleAdapter extends PagerAdapter {
     private List<String> picUrlList;
     private List<View.OnClickListener> mClickListenerList;
     private boolean isAutoCircle;
+    private Context mContext;
 
 
-    public BannerCircleAdapter(List<String> picUrlList, List<View.OnClickListener> mClickListenerList ,boolean isAutoCircle) {
+    public BannerCircleAdapter(Context context,List<String> picUrlList, List<View.OnClickListener> mClickListenerList ,boolean isAutoCircle) {
+        this.mContext=context;
         this.picUrlList = picUrlList;
         this.mClickListenerList = mClickListenerList;
         this.isAutoCircle=isAutoCircle;
@@ -41,8 +43,8 @@ public class BannerCircleAdapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        ImageView iv = new ImageView(BannerCircleView.mContext);
-        Glide.with(BannerCircleView.mContext).load(picUrlList.get(getPosition(position))).diskCacheStrategy(DiskCacheStrategy.ALL).animate(R.anim.anim_alpha_in).into(iv);
+        ImageView iv = new ImageView(mContext);
+        Glide.with(mContext).load(picUrlList.get(getPosition(position))).diskCacheStrategy(DiskCacheStrategy.ALL).animate(R.anim.anim_alpha_in).into(iv);
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
         ((ViewPager) container).addView(iv);
         // 在这个方法里面设置图片的点击事件
