@@ -1,4 +1,4 @@
-package com.jeff.bannercircleview;
+package com.jeff.customView.bannercircleview;
 
 import android.content.Intent;
 import android.net.Uri;

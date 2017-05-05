@@ -1,4 +1,4 @@
-package com.jeff.titleview;
+package com.jeff.customView;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.jeff.bannercircleview.R;
+import com.jeff.customView.bannercircleview.R;
 
 /**
  * 说明： 自定义标题栏

@@ -1,4 +1,4 @@
-package com.jeff.bannercircleview;
+package com.jeff.customView.bannercircleview;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;

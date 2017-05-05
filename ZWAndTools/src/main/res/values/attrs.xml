@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="TitleView">
 
+    <!--标题view-->
+    <declare-styleable name="TitleView">
         <attr name="titleBackgroundColor" format="color"/>
         <attr name="titleTextColor" format="color"/>
         <attr name="titleText" format="string"/>
@@ -10,7 +11,18 @@
         <attr name="rightText" format="string"/>
         <attr name="rightImgSrc" format="reference"/>
         <attr name="showStatus" format="enum"/>
+    </declare-styleable>
 
+
+    <!--类似今日头条的分类标题栏-->
+    <declare-styleable name="TabStrip">
+        <attr name="indicatorHeight" format="dimension" />
+        <attr name="indicatorColor" format="color" />
+        <attr name="indicatorMargin" format="dimension" />
+        <attr name="indicatorTextColor" format="color" />
+        <attr name="indicatorTextSize" format="dimension" />
+        <attr name="selectedIndicatorTextSize" format="dimension" />
+        <attr name="indicatorWidthDivideByScreen" format="boolean"/>
     </declare-styleable>
 
 </resources>

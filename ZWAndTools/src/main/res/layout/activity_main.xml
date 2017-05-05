@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jeff.bannercircleview.MainActivity">
+    tools:context="com.jeff.customView.bannercircleview.MainActivity">
 
-   <com.jeff.bannercircleview.BannerCirlePlayer
+   <com.jeff.customView.bannercircleview.BannerCirlePlayer
        android:id="@+id/banner_circle_piayer"
        android:layout_width="match_parent"
        android:layout_height="150dp">
 
-   </com.jeff.bannercircleview.BannerCirlePlayer>
+   </com.jeff.customView.bannercircleview.BannerCirlePlayer>
 </RelativeLayout>
