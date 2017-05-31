@@ -24,8 +24,6 @@ import com.jeff.customView.bannercircleview.R;
 
 /**
  * ViewPager指示器
- *
- * @author weidong
  */
 @SuppressLint("NewApi")
 public class TabStrip extends HorizontalScrollView {

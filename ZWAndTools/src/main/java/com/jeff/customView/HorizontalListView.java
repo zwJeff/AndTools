@@ -14,7 +14,10 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * 横向listview
+ * 说明：横向的listView
+ * 作者： 张武
+ * 日期： 2017/5/13.
+ * email:jeff_zw@qq.com
  */
 
 public class HorizontalListView extends AdapterView<ListAdapter> {

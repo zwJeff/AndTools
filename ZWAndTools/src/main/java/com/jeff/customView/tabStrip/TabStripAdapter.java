@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * 说明：
  * 作者： 张武
  * 日期： 2017/5/5.
- * email:wuzhang4@creditease.cn
+ * email:jeff_zw@qq.com
  */
 
 public class TabStripAdapter extends FragmentPagerAdapter {

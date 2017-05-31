@@ -6,9 +6,12 @@ import android.view.MotionEvent;
 import android.widget.GridView;
 
 /**
- * 类描述：不能滑动的ScrollView
- * 类名：NoScrollGridView
+ * 说明：不能滑动的ScrollView
+ * 作者： 张武
+ * 日期： 2017/5/13.
+ * email:jeff_zw@qq.com
  */
+
 public class NoScrollGridView extends GridView {
     public NoScrollGridView(Context context) {
         super(context);

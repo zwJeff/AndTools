@@ -26,7 +26,7 @@ import java.util.TimerTask;
  * 通过传入url的数量动态决定轮播图的数量
  * <p>
  * 作者： 张武
- * 日期： 2016/9/2.
+ * 日期： 2016/5/2.
  * email: jeff_zw@qq.com
  */
 public class BannerCirlePlayer extends RelativeLayout {

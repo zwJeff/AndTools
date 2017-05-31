@@ -4,7 +4,7 @@
     <!--标题view-->
     <declare-styleable name="TitleView">
         <attr name="titleBackgroundColor" format="color"/>
-        <attr name="titleTextColor" format="color"/>
+        <attr name="titleViewTextColor" format="color"/>
         <attr name="titleText" format="string"/>
         <attr name="leftText" format="string"/>
         <attr name="leftImgSrc" format="reference"/>

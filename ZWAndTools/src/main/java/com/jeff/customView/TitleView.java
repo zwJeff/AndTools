@@ -15,8 +15,8 @@ import com.jeff.customView.bannercircleview.R;
 /**
  * 说明： 自定义标题栏
  * 作者： 张武
- * 日期： 2017/5/3.
- * email:wuzhang4@creditease.cn
+ * 日期： 2017/5/13.
+ * email:jeff_zw@qq.com
  */
 
 public class TitleView extends RelativeLayout {
@@ -28,16 +28,12 @@ public class TitleView extends RelativeLayout {
      */
     //标题
     private TextView mTitle;
-
     //左边文字
     private TextView mLeftText;
-
     //左边图片
     private ImageView mLeftImg;
-
     //右边文字
     private TextView mRightText;
-
     //右边图片
     private ImageView mRightImg;
 
@@ -79,7 +75,7 @@ public class TitleView extends RelativeLayout {
         setLeftImgSrc(a.getResourceId(R.styleable.TitleView_leftImgSrc, -1));
         setTitleText(a.getString(R.styleable.TitleView_titleText));
         setRightText(a.getString(R.styleable.TitleView_rightText));
-        setTextColor(a.getColor(R.styleable.TitleView_titleTextColor, textColor));
+        setTextColor(a.getColor(R.styleable.TitleView_titleViewTextColor, textColor));
         setBackgroundColor(a.getColor(R.styleable.TitleView_titleBackgroundColor, backgroudColor));
         a.recycle();
     }
