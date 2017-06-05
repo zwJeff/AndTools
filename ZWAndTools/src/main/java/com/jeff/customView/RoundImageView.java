@@ -14,7 +14,7 @@ import android.widget.ImageView;
 /**
  * 圆形图片和圆角矩形图片，默认是圆形，使用圆角矩形只需调用接口设置roundcorner
  */
-public class RoundImageView extends android.support.v7.widget.AppCompatImageView {
+public class RoundImageView extends ImageView {
 
     private int roundCorner = 0;
 
