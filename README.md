@@ -17,3 +17,24 @@
 * [字符串工具类 StringUtils]()
 * [UI工具类 UIUtils]()
 
+
+###   Android Studio Gradle 快速引用
+####  1.配置JitPack仓库
+``` gradle
+allprojects {
+            repositories {
+                jcenter()                     //安卓默认的jcenter库
+                maven { url 'https://jitpack.io' } //为使用AndTools新增的库
+            }
+        }
+```
+####  2.在 dependencies 中 引入AndTools库 
+``` gradle
+dependencies {
+	compile 'com.github.zwJeff:AndTools:1.0.11'
+}
+```
+
+###   各个组件工具类 的快速使用
+
+#### 使用方法 参见各个组件和工具类说明
