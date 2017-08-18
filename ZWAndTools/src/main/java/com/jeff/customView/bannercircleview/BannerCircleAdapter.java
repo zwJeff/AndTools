@@ -23,22 +23,22 @@ public class BannerCircleAdapter extends PagerAdapter {
     private Context mContext;
 
 
-    public BannerCircleAdapter(Context context,List<String> picUrlList, List<View.OnClickListener> mClickListenerList ,boolean isAutoCircle) {
-        this.mContext=context;
+    public BannerCircleAdapter(Context context, List<String> picUrlList, List<View.OnClickListener> mClickListenerList, boolean isAutoCircle) {
+        this.mContext = context;
         this.picUrlList = picUrlList;
         this.mClickListenerList = mClickListenerList;
-        this.isAutoCircle=isAutoCircle;
+        this.isAutoCircle = isAutoCircle;
     }
 
     @Override
     public int getCount() {
         //如果需要循环，将Count设置为Integer最大值
-        return isAutoCircle?Integer.MAX_VALUE:picUrlList.size();
+        return isAutoCircle ? Integer.MAX_VALUE : picUrlList.size();
     }
 
     @Override
     public boolean isViewFromObject(View view, Object object) {
-        return view==object;
+        return view == object;
     }
 
     @Override
@@ -48,19 +48,20 @@ public class BannerCircleAdapter extends PagerAdapter {
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
         ((ViewPager) container).addView(iv);
         // 在这个方法里面设置图片的点击事件
-        iv.setOnClickListener(mClickListenerList.get(getPosition(position)));
+        if (mClickListenerList != null && mClickListenerList.size() > getPosition(position))
+            iv.setOnClickListener(mClickListenerList.get(getPosition(position)));
         return iv;
     }
 
 
-    private int getPosition(int position){
+    private int getPosition(int position) {
         //通过取模运算得出当前显示图片的真实序号
-        return isAutoCircle?position%picUrlList.size():position;
+        return isAutoCircle ? position % picUrlList.size() : position;
     }
 
     @Override
     public int getItemPosition(Object object) {
-        return isAutoCircle?super.getItemPosition(object)%picUrlList.size():super.getItemPosition(object);
+        return isAutoCircle ? super.getItemPosition(object) % picUrlList.size() : super.getItemPosition(object);
     }
 
     @Override
