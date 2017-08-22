@@ -10,7 +10,8 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 
-import com.jeff.lhcircle.Utils.UIUtils;
+import com.jeff.andUtils.UIUtils;
+
 
 /**
  * 说明：

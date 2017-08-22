@@ -18,6 +18,7 @@ public class AndTool {
     private static AndTool instance;
 
     public Application application;
+    public String VERSION_NAME;
     public int defaultPicId = R.mipmap.default_img;
 
     public static AndTool getInstanc() {
@@ -35,6 +36,20 @@ public class AndTool {
         x.Ext.init(application);
         x.Ext.setDebug(Config.DEBUG);
 
+        return this;
+    }
+
+
+
+    /**
+     * 设置AndTools内
+     *          图片加载工具默认的图片id
+     *          轮播图控件的默认图片id
+     * @param appVersionName
+     * @return
+     */
+    public AndTool setAppVersion(String appVersionName){
+        this.VERSION_NAME=appVersionName;
         return this;
     }
 

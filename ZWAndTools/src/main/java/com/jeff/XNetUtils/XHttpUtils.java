@@ -6,10 +6,9 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.jeff.lhcircle.BuildConfig;
-import com.jeff.lhcircle.Utils.FormatUtil;
-import com.jeff.lhcircle.Utils.NetCheckUtils;
-import com.jeff.lhcircle.core.MyApplication;
+import com.jeff.AndTool;
+import com.jeff.andUtils.FormatUtil;
+import com.jeff.andUtils.NetCheckUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -73,7 +72,7 @@ public class XHttpUtils {
      * @param callback
      */
     public void requestSyn(int method, final Request request, final RequestListener callback) {
-        if (!NetCheckUtils.isNetworkAvailable(MyApplication.getMyApplication().getApplicationContext())) {
+        if (!NetCheckUtils.isNetworkAvailable(AndTool.getInstanc().application.getApplicationContext())) {
             callback.onError("当前网络不可用");
             return;
         }
@@ -362,7 +361,7 @@ public class XHttpUtils {
                         String name = cookie.getName();
                         String value = cookie.getValue();
                         if ("JSESSIONID".equals(name)) {
-                            MyApplication.getMyApplication().setSession(value);
+//                            AndTool.getInstanc().application.setSession(value);
                             break;
                         }
                     }
@@ -411,8 +410,8 @@ public class XHttpUtils {
         /**
          * JSESSIONID
          */
-        if (isNeedCookie)
-            params.setHeader("Cookie", "JSESSIONID=" + MyApplication.getMyApplication().getSession());
+//        if (isNeedCookie)
+//            params.setHeader("Cookie", "JSESSIONID=" + MyApplication.getMyApplication().getSession());
         /**
          * 客户端时间 yyyy-MM-dd HH:mm:ss.SSS  clientDatetime
          */
@@ -421,7 +420,7 @@ public class XHttpUtils {
         /**
          * 客户端版本 appVersion
          */
-        params.setHeader("appVersion", BuildConfig.VERSION_NAME);
+        params.setHeader("appVersion", AndTool.getInstanc().VERSION_NAME);
         /**
          * 手机操作系统
          */
@@ -439,13 +438,13 @@ public class XHttpUtils {
         requestParams.setReadTimeout(TIMEOUT_SOCKET);
         requestParams.setMaxRetryCount(RETRY_TIME);
         requestParams.setUseCookie(true);
-        //添加头信息
-        if (url.endsWith("api/user/login") || url.endsWith("api/user/register") || url.endsWith("api/user/registerSMSCode"))
-            //登录、注册相关接口不设置cookie
+//        //添加头信息
+//        if (url.endsWith("api/user/login") || url.endsWith("api/user/register") || url.endsWith("api/user/registerSMSCode"))
+//            //登录、注册相关接口不设置cookie
             XHttpUtils.getInstance().setHeader(requestParams, false);
-        else {
-            XHttpUtils.getInstance().setHeader(requestParams, true);
-        }
+//        else {
+//            XHttpUtils.getInstance().setHeader(requestParams, true);
+//        }
         //其他请求参数请在requestParams中添加
         return requestParams;
     }
