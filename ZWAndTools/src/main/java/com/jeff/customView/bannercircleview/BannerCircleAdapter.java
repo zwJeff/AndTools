@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.jeff.XNetUtils.XImageLoaderUtils;
 
 import java.util.List;
 
@@ -44,7 +45,8 @@ public class BannerCircleAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         ImageView iv = new ImageView(mContext);
-        Glide.with(mContext).load(picUrlList.get(getPosition(position))).diskCacheStrategy(DiskCacheStrategy.ALL).animate(R.anim.anim_alpha_in).into(iv);
+
+        XImageLoaderUtils.display(iv,picUrlList.get(getPosition(position)));
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
         ((ViewPager) container).addView(iv);
         // 在这个方法里面设置图片的点击事件
