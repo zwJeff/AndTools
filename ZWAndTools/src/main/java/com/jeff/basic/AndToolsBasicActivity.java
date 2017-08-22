@@ -23,7 +23,7 @@ import butterknife.ButterKnife;
  * 日期： 2017/5/6.
  * email:wuzhang4@creditease.cn
  */
-public abstract class BasicActivity extends AppCompatActivity {
+public abstract class AndToolsBasicActivity extends AppCompatActivity {
     private Toast mToast;
     public Context mContext;
     private FrameLayout contentView;

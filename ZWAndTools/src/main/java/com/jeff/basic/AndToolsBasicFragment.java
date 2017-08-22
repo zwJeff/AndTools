@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
  * Fragment抽象基类
  */
 
-public abstract class BasicFragment extends Fragment {
+public abstract class AndToolsBasicFragment extends Fragment {
 
     public abstract int getContentViewId();
 

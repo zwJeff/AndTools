@@ -28,10 +28,10 @@ public class ActivityManager {
     /**
      * 获取栈顶Activity
      */
-    public BasicActivity getTopActivity() {
+    public AndToolsBasicActivity getTopActivity() {
         if (activityStack == null)
             return null;
-        return (BasicActivity)activityStack.get(activityStack.size()-1);
+        return (AndToolsBasicActivity)activityStack.get(activityStack.size()-1);
     }
 
     /**
