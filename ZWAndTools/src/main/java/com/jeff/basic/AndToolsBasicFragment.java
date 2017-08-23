@@ -28,7 +28,6 @@ public abstract class AndToolsBasicFragment extends Fragment {
     protected Context mContext;
     protected View mRootView;
     protected View mContentView;
-    @BindView(R2.id.net_error_view)
     protected NetErrorView mNetErrorView;
     protected FrameLayout mViewContainer;
 
@@ -45,6 +44,7 @@ public abstract class AndToolsBasicFragment extends Fragment {
         mRootView = inflater.inflate(R.layout.fragment_basic_layout, container, false);
         mContentView = inflater.inflate(getContentViewId(), null);
         mViewContainer = (FrameLayout) mRootView.findViewById(R.id.fragment_container);
+        mNetErrorView = (NetErrorView) mRootView.findViewById(R.id.net_error);
         mViewContainer.removeAllViews();
         mViewContainer.addView(mContentView);
         ButterKnife.bind(this, mRootView);//绑定framgent
