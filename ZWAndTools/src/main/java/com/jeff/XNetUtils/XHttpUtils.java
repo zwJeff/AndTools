@@ -157,16 +157,15 @@ public class XHttpUtils {
 
     /**
      * 下载文件
-     *
-     * @param url
+     *  @param url
      * @param filePath
      * @param callback
      */
-    public void downFile(String url, String filePath, final DownloadListener callback) {
+    public Callback.Cancelable downFile(String url, String filePath, final DownloadListener callback) {
         RequestParams params = new RequestParams(url);
         params.setSaveFilePath(filePath);
         params.setAutoRename(true);
-        x.http().get(params, new Callback.ProgressCallback<File>() {
+        Callback.Cancelable c= x.http().get(params, new Callback.ProgressCallback<File>() {
             @Override
             public void onSuccess(final File result) {
                 //下载完成会走该方法
@@ -241,6 +240,7 @@ public class XHttpUtils {
                 });
             }
         });
+        return c;
     }
 
     /**
