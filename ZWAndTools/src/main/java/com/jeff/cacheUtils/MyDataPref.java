@@ -132,7 +132,8 @@ public class MyDataPref {
     public String getLocalData(String key) {
         String result = "";
         if (!TextUtils.isEmpty(key)) {
-            if (mLocalDatas.get(key) == null) {
+            result= (String) mLocalDatas.get(key);
+            if (TextUtils.isEmpty(result)) {
                 //todo 如果Map中没有，从preference中取
                 result = pullFromPref(key);
                 if (result != null)
