@@ -17,6 +17,7 @@
 * [不可滚动的GridView NoScrollGridView]()
 * [类qq列表横向滑动删除的ListView SwipeMenuListView]()
 * [横向铺开的可自动换行的RadioGroup MultiLineRadioGroup]()
+* [底部弹起的菜单弹窗 BottomMenuDialog]()
 
 ### 工具类
 * [对XUtils网络工具封装的 XNetUtils]()
@@ -40,7 +41,7 @@ allprojects {
 ####  2.在 dependencies 中 引入AndTools库 
 ``` gradle
 dependencies {
-	compile 'com.github.zwJeff:AndTools:1.0.11'
+	compile 'com.github.zwJeff:AndTools:-SNAPSHOT'
 }
 ```
 
