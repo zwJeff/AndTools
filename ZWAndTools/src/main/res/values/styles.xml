@@ -14,7 +14,10 @@
         <item name="android:layout_marginLeft">1.5dip</item>
         <item name="android:layout_marginRight">1.5dip</item>
     </style>
-
+    <style name="bottom_view_anim" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/push_top_in</item>
+        <item name="@android:windowExitAnimation">@anim/push_bottom_out</item>
+    </style>
 
 
 </resources>

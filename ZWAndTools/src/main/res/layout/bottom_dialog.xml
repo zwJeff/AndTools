@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_bg"
+    android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <LinearLayout
+        android:background="@drawable/round_corner_white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y100"
+        android:gravity="center"
+        android:text="请选择您要发布的内容"
+        android:textColor="@color/gray_text" />
+
+    <LinearLayout
+        android:id="@+id/button_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_line"
+        android:orientation="vertical">
+
+    </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/cancel_btn"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/white_btn_bg"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/gray_text"
+        android:textSize="16dp" />
+    </LinearLayout>
+</LinearLayout>
