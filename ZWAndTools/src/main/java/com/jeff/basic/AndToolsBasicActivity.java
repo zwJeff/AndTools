@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.jeff.AndTool;
 import com.jeff.customView.TitleView;
 import com.jeff.customView.bannercircleview.R;
 
@@ -137,7 +138,9 @@ public abstract class AndToolsBasicActivity extends AppCompatActivity {
     public void exitConfirm() {
         isDoubleBack = true;
         Timer timer = new Timer();
-        showMessage("再按一次退出轮滑联盟", Toast.LENGTH_SHORT);
+        showMessage("再按一次退出"
+                + AndTool.getInstanc().application.getResources().getString(AndTool.getInstanc().application.getApplicationInfo().labelRes)
+                , Toast.LENGTH_SHORT);
         timer.schedule(new TimerTask() {
             public void run() {
                 isDoubleBack = false;
